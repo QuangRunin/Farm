@@ -1,0 +1,7 @@
+{
+  "store": "Store",
+  "discovery": "Discovery",
+  "order": "Order",
+  "favorite": "Favorite",
+  "account": "Account"
+}

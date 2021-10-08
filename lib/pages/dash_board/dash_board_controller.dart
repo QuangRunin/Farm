@@ -29,20 +29,25 @@ class DashBoardController extends GetxController {
 
     }
   }
-  Widget customIcon({index, icon,showBadge}) {
-    return Column(
-      children: [
-        Image.asset(icon,color: index != currentIndex.value ? blackColor : baseAppColor),
-        const SizedBox(height: 2.5),
-        showBadge ? Container(
-          width: 6.0,
-          height: 6.0,
-          decoration: const BoxDecoration(
-            borderRadius: BorderRadius.all(Radius.circular(3.0)),
-            color: Colors.red,
-          ),
-        ) :  const SizedBox(height: 5.0)
-      ],
+  Widget customIcon({index, icon,showBadge,title}) {
+    return SizedBox(
+      height: 52,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          showBadge ? Container(
+            width: 6.0,
+            height: 6.0,
+            decoration: const BoxDecoration(
+              borderRadius: BorderRadius.all(Radius.circular(3.0)),
+              color: Colors.red,
+            ),
+          ) :  const SizedBox(height: 5.0),
+          const SizedBox(height: 5),
+          Image.asset(icon,color: index != currentIndex.value ? blackColor : baseAppColor),
+          Text(title,style: index != currentIndex.value ? textBottomDefault : textBottomActive),
+        ],
+      ),
     );
   }
   Widget customTitle(index,title) {

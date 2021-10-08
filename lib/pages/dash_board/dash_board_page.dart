@@ -1,9 +1,9 @@
 import 'package:farm_connect/common/images.dart';
 import 'package:farm_connect/common/styles.dart';
+import 'package:farm_connect/generated/l10n.dart';
 import 'package:farm_connect/pages/dash_board/dash_board_controller.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:get/get.dart';
 
 class DashboardPage extends StatefulWidget {
@@ -35,7 +35,7 @@ class _DashboardPageState extends State<DashboardPage> {
                   highlightColor: Colors.transparent
               ),
               child: Container(
-                height: MediaQuery.of(context).padding.bottom + 50.0,
+                height: MediaQuery.of(context).padding.bottom + 65.0,
                 color: whiteColor,
                 child: Obx(()=> BottomNavigationBar(
                   type: BottomNavigationBarType.fixed,
@@ -45,15 +45,16 @@ class _DashboardPageState extends State<DashboardPage> {
                   selectedLabelStyle: textBottomActive,
                   unselectedLabelStyle: textBottomDefault,
                   backgroundColor: whiteColor,
+
                   onTap: (value) async{
                     controller.changeIndex(value);
                   },
                   items: [
-                    BottomNavigationBarItem(icon: controller.customIcon(index: 0,icon: storeIcon,showBadge: false),title: const SizedBox()),
-                    BottomNavigationBarItem(icon: controller.customIcon(index: 1,icon: discoveryIcon,showBadge: false),title: const SizedBox()),
-                    BottomNavigationBarItem(icon: controller.customIcon(index: 2,icon: orderIcon,showBadge: false), title: const SizedBox()),
-                    BottomNavigationBarItem(icon: controller.customIcon(index: 3,icon: favoriteIcon,showBadge: true),title: const SizedBox()),
-                    BottomNavigationBarItem(icon: controller.customIcon(index: 4,icon: accountIcon,showBadge: false),title: const SizedBox()),
+                    BottomNavigationBarItem(icon: controller.customIcon(index: 0,icon: storeIcon,showBadge: false, title: S.current.store),title: const SizedBox()),
+                    BottomNavigationBarItem(icon: controller.customIcon(index: 1,icon: discoveryIcon,showBadge: false,title: S.current.discovery),title: const SizedBox()),
+                    BottomNavigationBarItem(icon: controller.customIcon(index: 2,icon: orderIcon,showBadge: false, title:  S.current.order),title: const SizedBox()),
+                    BottomNavigationBarItem(icon: controller.customIcon(index: 3,icon: favoriteIcon,showBadge: true, title: S.current.store),title: const SizedBox()),
+                    BottomNavigationBarItem(icon: controller.customIcon(index: 4,icon: accountIcon,showBadge: false, title: S.current.account),title: const SizedBox()),
                   ],
                 )),
               ),
